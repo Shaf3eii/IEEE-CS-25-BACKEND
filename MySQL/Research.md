@@ -42,8 +42,6 @@ The most common type is a **relational database**, which organizes data into **t
 ---
 
 ### 🔹 Top 5 Databases in the World
-=======
-## Top 5 Most Popular Databases Today
 1. **MySQL**  
 2. **Microsoft SQL Server**  
 3. **PostgreSQL**  
@@ -130,7 +128,6 @@ When naming database objects (tables, columns, etc.), consistency matters. Commo
 
 ***
 
-=======
 ## What is RDBMS?
 A **Relational Database Management System (RDBMS)** is a software program that allows you to **create, manage, and interact** with a relational database.  
 It is the **engine behind the database**, ensuring that data is stored, retrieved, and managed **efficiently and securely**.  
