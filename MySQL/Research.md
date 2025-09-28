@@ -1,44 +1,112 @@
+# 📘 Database & SQL Fundamentals
+
+---
+
+### 🔹 What is a Database and Why Does it Exist?
+A **database** is an organized collection of data, typically stored electronically in a computer system. Think of it as a **digital filing cabinet**—but far more structured and efficient than simple spreadsheets or scattered files.
+
+Databases are managed through a **Database Management System (DBMS)**, which provides tools to store, retrieve, and manipulate data securely and efficiently.
+
+The main reason databases exist is to solve the challenges of handling large volumes of complex data. Before databases, information was stored in separate files, often leading to redundancy, inconsistency, and difficulty in accessing or updating data.
+
+👉 The most widely used type today is the **Relational Database**, which organizes information into structured tables with rows and columns.
+
+[Reference](https://www.coursera.org/articles/what-is-database)
+
+---
+
+### 🔹 What is SQL?
+**SQL (Structured Query Language)** is the standard programming language used to **manage and manipulate data** in relational databases.  
+It allows users to **insert, update, query, and delete** data efficiently.
+
+[Reference](https://aws.amazon.com/what-is/sql/#ams#what-isc1#pattern-data)
+
+---
+
+### 🔹 Top 5 Databases in the World
+1. **MySQL**  
+2. **Microsoft SQL Server**  
+3. **PostgreSQL**  
+4. **MongoDB**  
+5. **Oracle Database**
+
+---
+
+### 🔹 What is an RDBMS?
+An **RDBMS (Relational Database Management System)** is specialized software that enables the creation, management, and interaction with relational databases.  
+It is the **engine** behind the database, handling technical tasks like storage, indexing, security, and retrieval.
+
+[Reference](https://www.techtarget.com/searchdatamanagement/definition/RDBMS-relational-database-management-system#:~:text=Jun%2006%2C%202024-,What%20is%20an%20RDBMS)
+
+---
+
+### 🔹 DBMS vs RDBMS
+- **DBMS (Database Management System)**: A broad term for software that manages databases (structured or unstructured).  
+- **RDBMS (Relational Database Management System)**: A type of DBMS that organizes data into tables with predefined relationships.
+
+✅ Every RDBMS is a DBMS, but **not every DBMS is an RDBMS**.
+
+[Reference](https://www.tutorialspoint.com/difference-between-dbms-and-rdbms#:~:text=In%20contrast%2C%20a%20DBMS%20may)
+
+---
+
+### 🔹 Naming Conventions
+When naming database objects (tables, columns, etc.), consistency matters. Common practices include:
+
+- **Case Styles**:  
+  - `snake_case` → e.g., `first_name`  
+  - `PascalCase` → e.g., `FirstName`  
+  - `camelCase` → e.g., `firstName`
+
+- **Separators**:  
+  - Underscores (`_`) in snake case  
+  - No separators in PascalCase or camelCase
+
+[Reference](https://www.ibm.com/docs/en/db2-for-zos/12.0.0?topic=elements-naming-conventions)
+
+---
+
+### 🔹 Primary Keys vs Unique Keys
+- **Primary Key**:  
+  - A column (or set of columns) that uniquely identifies each row in a table.  
+  - Only **one primary key** per table.  
+  - Does **not allow NULLs or duplicates**.
+
+- **Unique Key**:  
+  - Also enforces uniqueness on a column.  
+  - A table can have **multiple unique keys**.  
+  - Allows **one NULL value**.
+
+✅ A **Primary Key** is always unique, but a **Unique Key** is not necessarily a primary key.
+
+[Reference](https://www.geeksforgeeks.org/dbms/difference-between-primary-key-and-unique-key/)
+
 ***
- - **What is the Database and why does it exist?**
-	- A database is a structured collection of data, typically stored electronically in a computer system. Think of it as a digital filing cabinet that's far more organized and powerful than a simple spreadsheet or a folder full of documents. It's not just the data itself, but also the software, known as a **Database Management System (DBMS)**, that allows users and applications to interact with the data efficiently. The most common type is a **relational database**, which organizes data into tables with rows and columns.
-	- Databases exist to solve the problems that arise when trying to manage large, complex amounts of information. Before databases, data was often stored in separate files, which led to numerous issues.
-	- [Reference](https://www.coursera.org/articles/what-is-database)
+
+### 🔹 constraints in MySQL.
+- Rules applied to columns in a table to limit the type of data that can be inserted, ensuring data accuracy and integrity.
+	- **Common Constraints in MySQL:**
+		- **`NOT NULL`**: This constraint ensures that a column cannot have a `NULL` (empty) value.
+		- **`UNIQUE`**: This guarantees that all values in a column or a set of columns are different from one another.
+		- **`PRIMARY KEY`**: A special type of constraint that uniquely identifies each record in a table. It is a combination of `NOT NULL` and `UNIQUE`.
+		- **`FOREIGN KEY`**: A `FOREIGN KEY` is used to establish and enforce a link between two tables. It ensures that the value in a column (or set of columns) in one table matches a value in the `PRIMARY KEY` of another table.
+		- **`CHECK`**: This constraint is used to ensure that a value in a column satisfies a specific condition.
+		- **`DEFAULT`**: The `DEFAULT` constraint provides a default value for a column when no value is explicitly specified during an `INSERT` operation.
+- [Reference](https://www.geeksforgeeks.org/dbms/dbms-integrity-constraints/)
+
 ***
- - **What is the SQL?**
-	 - **Structured Query Language**, is a special-purpose programming language used to manage and manipulate data in a **relational database**.
-	 - [Reference](https://aws.amazon.com/what-is/sql/#ams#what-isc1#pattern-data)
+
+### 🔹 Indexing in MySQL.
+- Indexing in MySQL is a crucial technique for improving the performance of database queries. An index is a data structure that helps the database engine find rows more quickly. Think of an index like the index in the back of a book, instead of reading the entire book to find a specific topic, you can go to the index, find the topic and a page number, and then jump directly to the relevant page. Without an index, the database would have to perform a **full table scan**, which means checking every single row to find the data you're looking for.
+- **How it Works:** When you create an index on one or more columns of a table, MySQL builds a separate, highly optimized data structure—typically a B-Tree—that stores the column values in a sorted order along with pointers to the corresponding rows in the table. . When you execute a query, the database can use this sorted index to quickly locate the rows that match your query conditions, significantly reducing the I/O operations required and speeding up the query.
+- **Types of Indexes:**
+	- **Primary Key Index:** This is a special index that is automatically created when you define a `PRIMARY KEY` on a column.
+	- **Unique Index:** Similar to a primary key index, a unique index ensures that all values in the indexed column are unique.
+	- **Normal Index:** Also known as a non-unique index, this is the most common type of index. It is used to speed up queries on columns that are frequently used in `WHERE` clauses or `JOIN` conditions.
+	- **Full-Text Index:** This type of index is used for searching text data within columns. It allows you to perform fast, keyword-based searches on large text fields.
+	- **Composite Index:** An index created on two or more columns. It's useful for queries that frequently filter data on multiple columns at once. The order of columns in a composite index is very important for performance.
+
+[Reference](https://www.geeksforgeeks.org/dbms/indexing-in-databases-set-1/)
+
 ***
- **What are the most 5 famous DBs in the world now?**
-	    - MySQL
-	    - Microsoft Server
-	    - PostgreSQL
-	    - MongoDB
-	    - Oracle
-=======
- - **What are the most 5 famous DBs in the world now?**
-	    1. MySQL
-	    2. Microsoft Server
-	    3. PostgreSQL
-	    4. MongoDB
-	    5. Oracle
-	 - [Reference](https://www.geeksforgeeks.org/blogs/most-popular-databases/)
-***
- **What is RDBMS?**
-		- A Relational Database Management System (RDBMS) is a software program that allows you to create, manage, and interact with a relational database. It is the engine behind the database that handles all the technical operations, ensuring data is stored, retrieved, and managed efficiently and securely.
-		- [Reference](https://www.techtarget.com/searchdatamanagement/definition/RDBMS-relational-database-management-system#:~:text=Jun%2006%2C%202024-,What%20is%20an%20RDBMS%20(relational%20database%20management%20system)%3F,interact%20with%20a%20relational%20database.)
-***
- **RDBMS VS DBMS.**
-	 	- **A Database Management System (DBMS)** is a general term for any software that manages a database. **An RDBMS (Relational Database Management System)** is a specific type of DBMS that organizes data using the relational model, which stores data in tables with predefined relationships
-		- All RDBMSs are DBMSs, but not all DBMSs are RDBMSs. 
-		- [Reference](https://www.tutorialspoint.com/difference-between-dbms-and-rdbms#:~:text=In%20contrast%2C%20a%20DBMS%20may,not%20all%20DBMSs%20are%20RDBMSs.)
-***
- **Naming conventions.**
-		- Case Sensitivity:
-			- Snake Case (snake_case)
-			- Pascal Case (PascalCase)
-			- Camel Case (camelCase)
-		- Separators:
-			- Underscores (_): Used in snake case to separate words (first_name)
-			- No Separators: Used in Pascal Case and Camel Case 
-		- [Reference](https://www.ibm.com/docs/en/db2-for-zos/12.0.0?topic=elements-naming-conventions)
-***
+
