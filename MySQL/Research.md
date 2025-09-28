@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 📘 Database & SQL Fundamentals
 
 ---
@@ -19,11 +18,9 @@ The main reason databases exist is to solve the challenges of handling large vol
 ### 🔹 What is SQL?
 **SQL (Structured Query Language)** is the standard programming language used to **manage and manipulate data** in relational databases.  
 It allows users to **insert, update, query, and delete** data efficiently.
-=======
+
 # Database & SQL Basics
-
 ---
-
 ##  What is a Database and Why Does it Exist?
 A **database** is a structured collection of data, typically stored electronically in a computer system.  
 Think of it as a **digital filing cabinet** that's far more organized and powerful than a simple spreadsheet or folder full of documents.  
@@ -55,7 +52,6 @@ The most common type is a **relational database**, which organizes data into **t
 
 ---
 
-<<<<<<< HEAD
 ### 🔹 What is an RDBMS?
 An **RDBMS (Relational Database Management System)** is specialized software that enables the creation, management, and interaction with relational databases.  
 It is the **engine** behind the database, handling technical tasks like storage, indexing, security, and retrieval.
